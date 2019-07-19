@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/custom-responsive-style.css">
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/all-plugins.js"></script>
+    <script type="text/javascript" src="~/Scripts/plugin-active.js"></script>
+</head>
+<body data-spy="scroll" data-target=".main-navigation" data-offset="150">
+    <section id="MainContainer">
+
+        <!-- Header starts here -->
+        <header id="Header">
+            <nav class="main-navigation">
+                <div class="container clearfix">
+                    <div class="site-logo-wrap">
+                        <a class="logo" href="~/Home"><img src="~/images/ds-logo.png" /></a>
+                    </div>
+                    <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+                    <div class="main-menu hidden-md-down">
+                        <ul class="menu-list">
+                            <li><a class="nav-link" href="~/Home/index" data-target="#HeroBanner">Home</a></li>
+                            <li><a class="nav-link" href="~/Home/services" data-target="#Services">Services</a></li>
+                            <li><a class="nav-link" href="~/Home/about" data-target="#About">About</a></li>
+                            <li><a class="nav-link" href="~/Home/contact" data-target="#ContactUs">Contact</a></li>
+                            <li><button type="button" class="btn btn-info">
+    @Html.ActionLink("Sign up", "register", "Account")
+</button></li>
+
+                            <li>
+                                <button type="button" class="btn btn-success">
+                                    @Html.ActionLink("Sign In", "login", "Account")
+
+
+                                </button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+        @RenderBody()
+
+
+        <footer id="Footer">
+            <div class="container">
+                <div class="social-share">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-logo-wrap">
+                    Learn.com &copy; 2019. Created by Mahmoud Sayed Abdo
+                </div>
+            </div>
+        </footer>
+        <!-- Footer section ends here -->
+    </section>
+</body>
+
+</html>

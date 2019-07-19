@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Examination_system.Models.Student_exam>
+
+@{
+    ViewBag.Title = "Studentexams";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<br>
+<br>
+<br>
+
+
+<section id="Services">
+    <div class="container">
+        <div class="services-wrapper">
+            @if (Model.Count()> 0)
+            {
+
+                foreach (var ex in Model)
+                {
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-shopping-bag" aria-hidden="true">@ex.Grade/@ex.exam.Exam_Grade</i></div>
+
+
+                        <h5 class="service-title">
+                            @ex.exam.Exam_Name
+                        </h5>
+                        <p class="service-description">@ex.exam.Exam_Name</p>
+
+
+                        @Html.ActionLink("Remove", "Delete", "Exams", new { id = ex.exam.Exam_id }, new { @class = "btn btn-info stretched-link" })
+
+
+                    </div>
+                }
+
+            }
+            else
+            {
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5>You didn't Start any Exam yet</h5>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            }
+        </div>
+        <a href="~/student" class="btn btn-primary stretched-link">Back to home</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+</section>
+
+

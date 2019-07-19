@@ -1,0 +1,84 @@
+﻿@model Examination_system.Models.Calc_total
+
+@{
+    ViewBag.Title = "save";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<section id="Services">
+    <div class="container">
+        <div class="services-wrapper">
+
+
+            @if (Model.User_Answer.Count > 0)
+            {
+            <form>
+                @foreach (var da in Model.User_Answer)
+                {
+                    <div>
+                        <h5>
+                            @da.question.Question_desc
+                        </h5>
+
+                        @if (da.usr_ans == null)
+                        {
+                            <b>Your Answer:</b><p></p>
+                        }
+                        else
+                        {
+                            <b>Your Answer:</b><p>@da.usr_ans.Answer_desc</p>
+                        }
+                        <b>Correct Answer:</b><p>@da.Correct_ans.Answer_desc</p>
+                    </div>
+                }
+                <div class="btn btn-danger stretched-link">Total Grade=@Model.total</div>
+
+            </form>
+
+
+
+
+            }
+            else
+            {
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <h1> You have to answer the Questions.</h1>
+                <br>
+
+                <br>
+
+                <br>
+
+                <br>
+
+
+            }
+
+
+        </div>
+            </div>
+    <p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="~/Exams" class="btn btn-primary stretched-link">Back to Exams</a>
+        <br>
+        <br>
+    </p>
+</section>
+
+
+

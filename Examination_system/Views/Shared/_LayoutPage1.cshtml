@@ -1,0 +1,99 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Learn.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/custom-responsive-style.css">
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/all-plugins.js"></script>
+    <script type="text/javascript" src="~/Scripts/plugin-active.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+
+</head>
+<body data-spy="scroll" data-target=".main-navigation" data-offset="150">
+    <section id="MainContainer">
+
+        <!-- Header starts here -->
+        <header id="Header">
+            <nav class="main-navigation">
+                <div class="container clearfix">
+                    <div class="site-logo-wrap">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <a class="logo" href="~/student"><img src="~/images/ds-logo.png" /></a>
+
+                        }
+                        @if(!Request.IsAuthenticated)
+                        {
+                        <a class="logo" href="~/Home"><img src="~/images/ds-logo.png" /></a>
+
+                        }
+
+                    </div>
+                    <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+                    <div class="main-menu hidden-md-down">
+                        <ul class="menu-list">
+                            <li><a class="nav-link" href="~/Student">Home</a></li>
+                            <li><a class="nav-link" href="~/Course">Courses</a></li>
+                            <li><a class="nav-link" href="~/Exams">Exams</a></li>
+                            <li><a class="nav-link" href="~/problems/rebortProblem">Problem</a></li>
+
+                            <li>
+                                <button class="btn btn-primary">
+                                    @User.Identity.Name
+                                </button>
+                                <span>&nbsp;</span><span> &nbsp;</span><span> &nbsp;</span>
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button class="btn btn-danger" type="submit">Log Off</button>
+                                }
+
+
+
+
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                          
+                              
+            </nav>
+        </header>
+        
+        @RenderBody()
+
+
+        <footer id="Footer">
+            <div class="container">
+                <div class="social-share">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-logo-wrap">
+                    Learn.com &copy; 2019. Created by Mahmoud Sayed Abdo
+                </div>
+            </div>
+        </footer>
+        <!-- Footer section ends here -->
+    </section>
+</body>
+
+</html>
+}

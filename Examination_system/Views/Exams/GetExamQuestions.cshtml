@@ -1,0 +1,98 @@
+﻿@model Examination_system.Models.UserAnswer
+
+@{
+    ViewBag.Title = "GetExamQuestions";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+
+}
+
+</br>
+</br>
+</br>
+</br>
+
+
+
+
+<section id="Services">
+    <div class="container">
+        <div class="services-wrapper">
+
+            @if (Model.Exam_Questions.Count > 0)
+            {
+                using (Html.BeginForm("Save", "Exams", FormMethod.Post))
+                {
+                    for (int i = 0; i < Model.Exam_Questions.Count; i++)
+                    {
+                        <div>
+                            @*<div class="service-icon"><i class="fa fa-shopping-bag" aria-hidden="true">0/@exam.</i></div>*@
+
+
+                            <h5 class="service-title">
+                                @Model.Exam_Questions[i].Question.Question_desc
+                            </h5>
+                            @Html.HiddenFor(c => c.User_Answer[i].question_id, new { Value = Model.Exam_Questions[i].Question.Question_id })
+                            @Html.HiddenFor(c => c.User_Answer[i].correct_answer_id, new { Value = Model.Exam_Questions[i].Question.Correct_Answer_id })
+
+                            @foreach (var ans in @Model.Exam_Questions[i].Question.Question_Asnwers)
+                            {
+                                @Html.RadioButtonFor(c => c.User_Answer[i].user_answer_id, ans.Answer_id) @ans.answer.Answer_desc<br>
+
+                            }
+
+                            <p></p>
+
+
+                        </div>
+                    }
+                    /* <input type="button" onclick="check_selected()" value="Click">*/
+
+
+
+
+                    <input class="btn btn-warning stretched-link" type="submit" value="Save" />
+
+                }
+            }
+            else
+            {
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <h1> professor didn't add any Questions yet.</h1><br>
+                <ul>
+                    <h2>You Can start this exams</h2>
+
+                    <li><h5>OOP</h5></li>
+                    <li><h5>MVC</h5></li>
+
+                </ul>
+                <br>
+
+                <br>
+
+                <br>
+
+                <br>
+
+
+            }
+
+
+        </div>
+    </div>
+    <p>
+        <br>
+        <br>
+        <br>
+        <br>
+        @Html.ActionLink("Back To Exams","index","Exams",null,new {@class= "btn btn-primary stretched-link" })
+        <br>
+        <br>
+    </p>
+</section>
+
+
+

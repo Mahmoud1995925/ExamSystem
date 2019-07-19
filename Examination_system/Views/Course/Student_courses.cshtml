@@ -1,0 +1,66 @@
+﻿@model Examination_system.Models.ApplicationUser
+@{
+    ViewBag.Title = "Student_courses";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<br>
+<br>
+<br>
+
+
+<section id="Services">
+    <div class="container">
+        <div class="services-wrapper">
+            @if (Model.Student_Course.Count > 0)
+            {
+
+                foreach (var course in Model.Student_Course)
+                {
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-shopping-bag" aria-hidden="true"> @course.Course.ExamCourses.Count Exams</i></div>
+
+
+                        <h5 class="service-title">
+                            @course.Course.Course_Name
+                        </h5>
+                        <p class="service-description">@course.Course.Course_Desc</p>
+
+
+                        @Html.ActionLink("More Details >>", "Details", "course", new { id = course.Course.Course_id }, new { @class = "btn btn-success stretched-link" })
+                        @Html.ActionLink("Remove", "Delete", "course", new { id = course.Course.Course_id }, new { @class = "btn btn-info stretched-link" })
+
+
+                    </div>
+                }
+
+            }
+            else
+            {
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5>You didn't joined any Course yet</h5>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            }
+        </div>
+        <a href="~/student" class="btn btn-primary stretched-link">Back to home</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+</section>

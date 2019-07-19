@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<section id="HeroBanner">
+    <div class="hero-content">
+        <h1>Welcome to Exam.com</h1>
+        <p>
+            Give your students the best distraction free elearning experience with our Exam builder.
+
+        </p>
+        <a href="~/account/login" class="hero-cta">Get started</a>
+
+    </div>
+</section>
+@RenderPage("~/Views/Home/Services.cshtml")
+@RenderPage("~/Views/Home/About.cshtml")
+@RenderPage("~/Views/Home/Contact.cshtml")

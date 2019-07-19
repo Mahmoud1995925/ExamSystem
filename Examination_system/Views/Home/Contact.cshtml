@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Contact";
+
+}
+<section id="ContactUs">
+    <div class="container contact-container">
+        <h3 class="contact-title">Get In Touch</h3>
+        <div class="contact-outer-wrapper">
+            <div class="address-block">
+                <p class="add-title">Contact Details</p>
+                <div class="c-detail">
+                    <span class="c-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <span class="c-info">Cairo,egypt</span>
+                </div>
+                <div class="c-detail">
+                    <span class="c-icon"><i class="fa fa-phone" aria-hidden="true"></i></span> <span class="c-info">+0228915162</span>
+                </div>
+                <div class="c-detail">
+                    <span class="c-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span> <span class="c-info">justmahmoud991@gmail.com</span>
+                </div>
+            </div>
+            <div class="form-wrap">
+                <p class="add-title">Send Us Message</p>
+                <form>
+                    <div class="fname floating-label">
+                        <input type="text" class="floating-input" name="full name" id="full-name-field" />
+                        <label for="full-name-field">Full Name</label>
+                    </div>
+                    <div class="email floating-label">
+                        <input type="email" class="floating-input" name="email" id="mail-field" />
+                        <label for="mail-field">Email</label>
+                    </div>
+                    <div class="contact floating-label">
+                        <input type="tel" class="floating-input" name="contact" id="contact-us-field" />
+                        <label for="contact-us-field">Contact</label>
+                    </div>
+                    <div class="company floating-label">
+                        <input type="text" class="floating-input" name="company" id="company-field" />
+                        <label for="company-field">Company</label>
+                    </div>
+                    <div class="user-msg floating-label">
+                        <textarea class="floating-input" name="user message" id="user-msg-field"></textarea>
+                        <label for="user-msg-field" class="msg-label">Your Message</label>
+                    </div>
+                    <div class="submit-btn">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

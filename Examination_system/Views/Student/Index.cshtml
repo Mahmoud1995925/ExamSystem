@@ -1,0 +1,17 @@
+﻿@model Examination_system.Models.ApplicationUser
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<section id="HeroBanner">
+    <div class="hero-content">
+        <h1>Welcome to Exam.com</h1>
+        <p>
+            Hello @Model.Full_name Let's start Courses And Exams<br /><br />
+            @Html.ActionLink("MY Courses", "Student_courses", "course",null,new {@class= "hero-cta" })<br /><br />
+            @Html.ActionLink("MY Exams", "Studentexams", "Exams", null, new { @class = "hero-cta" })
+        </p>
+
+    </div>
+</section>

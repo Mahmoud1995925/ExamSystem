@@ -1,0 +1,72 @@
+﻿@model Examination_system.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+</br>
+</br>
+</br>
+</br>
+<hr />
+<h2>@Model.Course_Name</h2>
+<h6>@Model.Course_Desc</h6>
+<hr />
+
+</br>
+</br>
+<h4>Exams in this course</h4>
+@if (Model.ExamCourses.Count > 0)
+{
+    <form>
+
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Exam Name
+                    </th>
+                    <th>
+                        Exam Description
+                    </th>
+                    <th>
+                        Exam Grade
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.ExamCourses)
+            {
+            <tr>
+                <td>
+                    @item.exam.Exam_Name
+                </td>
+                <td>
+                    @item.exam.Exam_Desc
+                </td>
+                <td>
+                    @item.exam.Exam_Grade
+                </td>
+                <td>
+                    @Html.ActionLink("Start Exam", "Create", "Exams", new { id = item.Exam_id }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+            }
+        </table>
+
+    </form>
+}
+else
+{
+    <h5>There is no Exams in this course</h5>
+    <br>
+    <br>
+    <br>
+    <br>
+}
+<p>
+    <a href="~/course" class="btn btn-primary stretched-link">Back to Courses</a>
+</p>
+<br>
+<br>
+<br>
+<br>
